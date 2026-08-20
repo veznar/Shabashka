@@ -1,10 +1,12 @@
 /* Исходники проекта, подтянутые как raw-строки на этапе сборки Vite.
-   Из них прямо в браузере собирается ZIP-архив «shabashka-source.zip». */
+   Из них прямо в браузере собирается ZIP-архив «shabashka-source.zip».
+   README.md живёт в корне проекта и импортируется отсюда — источник один. */
 
 import indexHtml from "../index.html?raw";
 import pkgJson from "../package.json?raw";
 import viteConfig from "../vite.config.js?raw";
 import tsconfig from "../tsconfig.json?raw";
+import readmeMd from "../README.md?raw";
 
 import mainTsx from "./main.tsx?raw";
 import appTsx from "./App.tsx?raw";
@@ -25,33 +27,8 @@ import voicesTsx from "./components/Voices.tsx?raw";
 import faqTsx from "./components/Faq.tsx?raw";
 import closingTsx from "./components/Closing.tsx?raw";
 
-const README = `# ШАБАШКА — маркетплейс подработок для подростков 14–17 лет
-
-Одностраничный сайт на React + Vite + Tailwind CSS v4:
-лента подработок с фильтрами и откликами, калькулятор дохода,
-блок для родителей, отзывы и FAQ.
-
-## Запуск
-
-\`\`\`bash
-npm install
-npm run dev      # локальная разработка
-npm run build    # продакшен-сборка в dist/
-\`\`\`
-
-## Структура
-
-- src/data.ts            — все данные: заказы, категории, гарантии, FAQ, отзывы
-- src/lib.tsx            — хуки: scroll-reveal, count-up, scramble, localStorage
-- src/components/        — секции: Hero, JobBoard, Calculator, Safety и др.
-- src/projectFiles.ts    — сборка этого ZIP-архива прямо из браузера
-
-Шрифты (Unbounded, Golos Text, JetBrains Mono) подключаются с Google Fonts.
-Иллюстрация в блоке «Родителям» загружается по внешней ссылке.
-`;
-
 export const PROJECT_FILES: Array<[string, string]> = [
-  ["README.md", README],
+  ["README.md", readmeMd],
   ["index.html", indexHtml],
   ["package.json", pkgJson],
   ["vite.config.js", viteConfig],
