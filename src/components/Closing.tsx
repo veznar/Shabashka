@@ -1,7 +1,22 @@
+import { useState } from "react";
 import { Reveal } from "../lib";
 import { IconArrow, IconStarburst } from "./Icons";
-
 export default function Closing() {
+  const [zipState, setZipState] = useState<"idle" | "busy" | "done">("idle");
+
+  const handleDownload = async () => {
+    if (zipState === "busy") return;
+    setZipState("busy");
+    try {
+      const { downloadProjectZip } = await import("../projectFiles");
+      await downloadProjectZip();
+      setZipState("done");
+      window.setTimeout(() => setZipState("idle"), 3200);
+    } catch {
+      setZipState("idle");
+    }
+  };
+
   return (
     <>
       {/* CTA band */}
@@ -128,7 +143,41 @@ export default function Closing() {
             ))}
           </div>
 
-          <div className="mt-12 flex flex-col gap-3 border-t-2 border-paper/15 pt-6 text-[11px] font-medium leading-relaxed text-paper/45 sm:flex-row sm:items-center sm:justify-between">
+          <div className="mt-12 flex flex-col items-start justify-between gap-5 rounded-xl border-2 border-paper/25 bg-paper/5 px-5 py-4 sm:flex-row sm:items-center sm:px-6">
+            <div className="flex items-center gap-4">
+              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl border-2 border-lime bg-moss text-lime">
+                <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 3.5v11m0 0 4-4m-4 4-4-4M4 16.5v2A2.5 2.5 0 0 0 6.5 21h11a2.5 2.5 0 0 0 2.5-2.5v-2" />
+                </svg>
+              </span>
+              <div>
+                <p className="font-display text-[13px] font-extrabold uppercase tracking-wide text-paper">
+                  Проект с открытым исходником
+                </p>
+                <p className="mt-0.5 text-xs font-medium text-paper/55">
+                  React + Vite + Tailwind v4 · весь код сайта одним архивом, 22 файла
+                </p>
+              </div>
+            </div>
+            <button
+              onClick={handleDownload}
+              disabled={zipState === "busy"}
+              className="btn-pop inline-flex shrink-0 items-center gap-2.5 rounded-xl border-2 border-ink bg-lime px-5 py-3 font-display text-xs font-bold uppercase tracking-wide text-ink disabled:opacity-70"
+            >
+              {zipState === "busy" ? (
+                <>
+                  <span className="blink-dot h-2 w-2 rounded-full bg-ink" />
+                  Пакуем архив…
+                </>
+              ) : zipState === "done" ? (
+                <>Скачано — удачной сборки!</>
+              ) : (
+                <>Скачать исходники (.zip)</>
+              )}
+            </button>
+          </div>
+
+          <div className="mt-8 flex flex-col gap-3 border-t-2 border-paper/15 pt-6 text-[11px] font-medium leading-relaxed text-paper/45 sm:flex-row sm:items-center sm:justify-between">
             <p className="max-w-2xl">
               © 2026 «Шабашка». Сервис знакомит подростков 14–17 лет с проверенными работодателями —
               ИП и юрлицами РФ. Трудоустройство — по ст. 63 ТК РФ, с согласия родителей до 16 лет.
