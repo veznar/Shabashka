@@ -86,8 +86,8 @@ body {
 
 .btn-pop {
   transition:
-    transform 0.16s ease,
-    box-shadow 0.16s ease,
+    transform 0.16s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.16s cubic-bezier(0.34, 1.56, 0.64, 1),
     background-color 0.16s ease;
   box-shadow: 4px 4px 0 0 var(--color-ink);
 }
@@ -140,6 +140,18 @@ body {
   }
   to {
     transform: translateY(9px);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(216, 243, 74, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(216, 243, 74, 0);
   }
 }
 
