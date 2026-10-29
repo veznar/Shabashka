@@ -67,7 +67,7 @@ export default function Closing() {
               <a href="#top" className="flex items-center gap-2.5">
                 <IconStarburst className="h-8 w-8 text-lime" />
                 <span className="font-display text-lg font-extrabold">
-                  ШАБАШКА
+                  ПЕРВАЯ СМЕНА
                   <sup className="ml-1 rounded-md border-2 border-lime bg-transparent px-1.5 py-0.5 font-mono text-[10px] font-bold text-lime">
                     14–17
                   </sup>
@@ -179,7 +179,7 @@ export default function Closing() {
 
           <div className="mt-8 flex flex-col gap-3 border-t-2 border-paper/15 pt-6 text-[11px] font-medium leading-relaxed text-paper/45 sm:flex-row sm:items-center sm:justify-between">
             <p className="max-w-2xl">
-              © 2026 «Шабашка». Сервис знакомит подростков 14–17 лет с проверенными работодателями —
+              © 2026 «Первая смена». Сервис знакомит подростков 14–17 лет с проверенными работодателями —
               ИП и юрлицами РФ. Трудоустройство — по ст. 63 ТК РФ, с согласия родителей до 16 лет.
             </p>
             <p className="shrink-0 font-mono uppercase tracking-wider">

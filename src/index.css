@@ -5,15 +5,15 @@
   --font-sans: "Golos Text", "Segoe UI", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", monospace;
 
-  --color-paper: #f2f3eb;
-  --color-fog: #e5e8da;
-  --color-ink: #17251c;
-  --color-pine: #131f18;
-  --color-moss: #1d3023;
-  --color-lime: #d8f34a;
-  --color-butter: #ffd84d;
-  --color-flame: #ff6b35;
-  --color-teal: #43b8ae;
+  --color-paper: #f8fbff;
+  --color-fog: #e8f4fd;
+  --color-ink: #0a2540;
+  --color-pine: #061a2e;
+  --color-moss: #0d3b66;
+  --color-lime: #4da3ff;
+  --color-butter: #7ec8ff;
+  --color-flame: #ff6b6b;
+  --color-teal: #2e8bc0;
 }
 
 html {

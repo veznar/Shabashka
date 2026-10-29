@@ -1,5 +1,5 @@
 /* Исходники проекта, подтянутые как raw-строки на этапе сборки Vite.
-   Из них прямо в браузере собирается ZIP-архив «shabashka-source.zip».
+   Из них прямо в браузере собирается ZIP-архив «pervaya-smena-source.zip».
    README.md живёт в корне проекта и импортируется отсюда — источник один. */
 
 import indexHtml from "../index.html?raw";
@@ -55,7 +55,7 @@ export const PROJECT_FILES: Array<[string, string]> = [
 export async function downloadProjectZip() {
   const { default: JSZip } = await import("jszip");
   const zip = new JSZip();
-  const root = zip.folder("shabashka");
+  const root = zip.folder("pervaya-smena");
   if (!root) throw new Error("zip folder failed");
   for (const [path, content] of PROJECT_FILES) {
     root.file(path, content);
@@ -68,7 +68,7 @@ export async function downloadProjectZip() {
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
-  a.download = "shabashka-source.zip";
+  a.download = "pervaya-smena-source.zip";
   document.body.appendChild(a);
   a.click();
   a.remove();
