@@ -5,15 +5,15 @@
   --font-sans: "Golos Text", "Segoe UI", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", monospace;
 
-  --color-paper: #f2f3eb;
-  --color-fog: #e5e8da;
-  --color-ink: #17251c;
-  --color-pine: #131f18;
-  --color-moss: #1d3023;
-  --color-lime: #d8f34a;
-  --color-butter: #ffd84d;
-  --color-flame: #ff6b35;
-  --color-teal: #43b8ae;
+  --color-paper: #f8fbff;
+  --color-fog: #e8f4fd;
+  --color-ink: #0a2540;
+  --color-pine: #061a2e;
+  --color-moss: #0d3b66;
+  --color-lime: #4da3ff;
+  --color-butter: #7ec8ff;
+  --color-flame: #ff6b6b;
+  --color-teal: #2e8bc0;
 }
 
 html {
@@ -86,8 +86,8 @@ body {
 
 .btn-pop {
   transition:
-    transform 0.16s ease,
-    box-shadow 0.16s ease,
+    transform 0.16s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.16s cubic-bezier(0.34, 1.56, 0.64, 1),
     background-color 0.16s ease;
   box-shadow: 4px 4px 0 0 var(--color-ink);
 }
@@ -140,6 +140,18 @@ body {
   }
   to {
     transform: translateY(9px);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(216, 243, 74, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(216, 243, 74, 0);
   }
 }
 

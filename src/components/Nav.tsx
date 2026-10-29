@@ -40,7 +40,7 @@ export default function Nav() {
           <a href="#top" className="group flex items-center gap-2.5">
             <IconStarburst className="h-8 w-8 text-lime transition-transform duration-500 group-hover:rotate-180" />
             <span className="font-display text-lg font-extrabold tracking-tight">
-              ШАБАШКА
+              ПЕРВАЯ СМЕНА
               <sup className="ml-1 rounded-md border-2 border-ink bg-butter px-1.5 py-0.5 font-mono text-[10px] font-bold">
                 14–17
               </sup>

@@ -43,9 +43,9 @@ function MiniJob({ job, className }: { job: (typeof JOBS)[number]; className?: s
   const tile =
     job.cat === "courier" ? "bg-butter" : job.cat === "digital" ? "bg-butter" : job.cat === "promo" ? "bg-lime" : "bg-lime";
   return (
-    <div className={`w-[300px] rounded-xl border-2 border-ink bg-white p-4 shadow-pop sm:w-[330px] ${className}`}>
+    <div className={`w-[300px] rounded-xl border-2 border-ink bg-white p-4 shadow-pop transition-all duration-300 hover:scale-105 hover:shadow-pop-lime sm:w-[330px] ${className}`}>
       <div className="flex items-start justify-between gap-3">
-        <span className={`grid h-10 w-10 place-items-center rounded-lg border-2 border-ink ${tile}`}>
+        <span className={`grid h-10 w-10 place-items-center rounded-lg border-2 border-ink ${tile} transition-transform duration-300 group-hover:rotate-12`}>
           <Ico className="h-5 w-5" />
         </span>
         <span className="flex items-center gap-1.5 rounded-full border-2 border-ink bg-paper px-2.5 py-1 font-mono text-[10px] font-bold uppercase">
@@ -76,6 +76,11 @@ export default function Hero() {
 
   return (
     <section id="top" className="relative overflow-hidden border-b-2 border-ink">
+      {/* Animated gradient background */}
+      <div className="pointer-events-none absolute inset-0 opacity-30">
+        <div className="absolute -left-1/4 top-0 h-[500px] w-[500px] rounded-full bg-lime/40 blur-3xl" />
+        <div className="absolute -right-1/4 bottom-0 h-[400px] w-[400px] rounded-full bg-butter/30 blur-3xl" />
+      </div>
       <div className="bg-dots pointer-events-none absolute -left-10 top-10 h-72 w-72 opacity-70" />
       <div className="pointer-events-none absolute -right-24 top-1/2 hidden -translate-y-1/2 lg:block">
         <IconStarburst className="spin-slow h-[430px] w-[430px] text-lime/50" />
@@ -84,7 +89,7 @@ export default function Hero() {
       <div className="mx-auto grid max-w-7xl gap-12 px-4 pb-16 pt-12 sm:px-6 lg:grid-cols-[1.08fr_0.92fr] lg:pb-24 lg:pt-16">
         {/* left: poster type */}
         <div className="relative z-10 flex flex-col justify-center">
-          <p className="mb-6 inline-flex w-fit items-center gap-2 rounded-full border-2 border-ink bg-white px-3.5 py-1.5 font-mono text-[11px] font-bold uppercase tracking-[0.12em]">
+          <p className="mb-6 inline-flex w-fit items-center gap-2 rounded-full border-2 border-ink bg-white px-3.5 py-1.5 font-mono text-[11px] font-bold uppercase tracking-[0.12em] shadow-pop-sm transition-all duration-200 hover:scale-105 hover:shadow-pop">
             <span className="blink-dot h-2 w-2 rounded-full bg-flame" />
             маркетплейс подработок · 14–17 лет
           </p>
@@ -125,7 +130,7 @@ export default function Hero() {
 
           <div
             ref={statsRef}
-            className="mt-10 grid grid-cols-2 overflow-hidden rounded-xl border-2 border-ink bg-white shadow-pop sm:grid-cols-4"
+            className="mt-10 grid grid-cols-2 overflow-hidden rounded-xl border-2 border-ink bg-white shadow-pop transition-all duration-300 hover:shadow-pop-lime sm:grid-cols-4"
           >
             {STATS.map((s, i) => (
               <Stat key={i} {...s} i={i} start={inView} />
@@ -134,34 +139,34 @@ export default function Hero() {
         </div>
 
         {/* right: live feed stack */}
-        <div className="relative z-10 hidden min-h-[560px] md:block">
-          <div className="absolute right-0 top-2 rotate-3">
+        <div className="relative z-10 hidden min-h-[560px] md:block lg:min-h-[620px]">
+          <div className="absolute right-0 top-2 rotate-3 transition-transform duration-500 hover:rotate-0">
             <div className="floaty">
               <MiniJob job={JOBS[2]} />
             </div>
           </div>
-          <div className="absolute left-0 top-[185px] -rotate-2">
+          <div className="absolute left-0 top-[185px] -rotate-2 transition-transform duration-500 hover:rotate-0">
             <div className="floaty" style={{ animationDelay: "-2s" }}>
               <MiniJob job={JOBS[0]} />
             </div>
           </div>
-          <div className="absolute right-6 top-[380px] rotate-[5deg]">
+          <div className="absolute right-6 top-[380px] rotate-[5deg] transition-transform duration-500 hover:rotate-0">
             <div className="floaty" style={{ animationDelay: "-3.6s" }}>
               <MiniJob job={JOBS[4]} />
             </div>
           </div>
 
           {/* stickers */}
-          <div className="absolute -left-3 top-[110px]">
+          <div className="absolute -left-3 top-[110px] transition-transform duration-300 hover:scale-110">
             <IconStarburst className="spin-slow h-24 w-24 text-flame" />
             <span className="absolute inset-0 grid place-items-center font-display text-lg font-extrabold text-paper">
               14+
             </span>
           </div>
-          <div className="floaty absolute bottom-2 left-8 -rotate-3 rounded-xl border-2 border-ink bg-butter px-4 py-2 shadow-pop-sm">
+          <div className="floaty absolute bottom-2 left-8 -rotate-3 rounded-xl border-2 border-ink bg-butter px-4 py-2 shadow-pop-sm transition-all duration-300 hover:rotate-0 hover:scale-105">
             <span className="font-mono text-xs font-bold uppercase">выплаты за 24 ч</span>
           </div>
-          <div className="floaty absolute right-[-8px] top-[330px] rotate-6 rounded-xl border-2 border-ink bg-white px-3.5 py-2 shadow-pop-sm" style={{ animationDelay: "-1.2s" }}>
+          <div className="floaty absolute right-[-8px] top-[330px] rotate-6 rounded-xl border-2 border-ink bg-white px-3.5 py-2 shadow-pop-sm transition-all duration-300 hover:rotate-0 hover:scale-105" style={{ animationDelay: "-1.2s" }}>
             <span className="flex items-center gap-1.5 font-mono text-[11px] font-bold">
               <IconCheck className="h-3.5 w-3.5 text-teal" /> работодатель проверен
             </span>

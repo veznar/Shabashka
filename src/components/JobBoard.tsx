@@ -277,7 +277,7 @@ export default function JobBoard() {
   const [online, setOnline] = useState(false);
   const [favOnly, setFavOnly] = useState(false);
   const [sort, setSort] = useState<Sort>("fresh");
-  const [favs, setFavs] = useLocalStorage<number[]>("shabashka:favs", []);
+  const [favs, setFavs] = useLocalStorage<number[]>("pervaya-smena:favs", []);
   const [applied, setApplied] = useState<number[]>([]);
   const [modalJob, setModalJob] = useState<Job | null>(null);
   const boardRef = useRef<HTMLDivElement>(null);
